@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewdport" content="width=device-width, initial-scale=1.0">
+	<title>Редактирование профиля</title>
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='../static/bootstrap.min.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='../static/change.css')}}">
+</head>
+	<script>
+	    function disp(form) {
+	        if (form.style.display == "none") {
+	            form.style.display = "block";
+	        } else {
+	            form.style.display = "none";
+	        }
+	    }
+    </script>
+<body>
+	<h1 class="center-text">Страница с учётными данными пользователя</h1>
+	<div class="card" style="width: 18rem;">
+  		<img src="../static/avatar.png" class="card-img-top" alt="avatar">
+  	</div>
+	<div class="line"></div>
+	{% block content %}
+	{% for iter in update %}
+		{# Отображение данных пользователя #}
+		<div class="personal">User id is <b>{{iter.id}}</b></div>
+		<div class="personal">User login is <b>{{iter.login}}</b></div>
+		<div class="personal">Time of registration <b>{{iter.time}}</b></div>
+	{% endfor %}
+	{% endblock %}
+	<button type="button" class="btn btn-light rename" onclick="disp(document.getElementById('form1'))">Изменить логин</button>
+	<form id="form1" style="display: none;" class="get-form-from-bootstrap" action="/edit-profile/" method="POST">
+        <input type="text" class="form-control text-input" placeholder="Введите новый логин" name="login2" required>
+        <input type="submit" class="btn btn-primary text-input">
+    </form>
+    {% block message %}
+		{% for cat,msg in get_flashed_messages(True) %}
+			<div class="flash {{cat}}">{{msg}}</div>
+		{% endfor %}
+	{% endblock %}
+</body>
+</html>

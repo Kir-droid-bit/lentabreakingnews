@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Главная</title>
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='../static/bootstrap.min.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='../static/change.css')}}">
+</head>
+<body>
+	<header>
+		<div class="container-fluide">
+			<a href="{{url_for('registr')}}"><button type="button" class="btn btn-primary col-md-3   bord">Регистрация</button></a>
+			<a href="{{url_for('avto')}}"><button type="button" class="btn btn-success col-md-3   bord">Авторизация</button></a>
+			<a href="{{url_for('profile')}}"><button type="button" class="btn btn-danger col-md-3   bord">Перейти в профиль</button></a>
+			<a href="{{url_for('logout')}}"><button type="button" class="btn btn-light col-md-3   bord">Выход</button></a>
+		</div>
+	</header>
+	<section>
+	{% block content %}
+	<section>
+	<div class="container-fluide">
+		<div class="row js-content">
+			<div class="blocknews">
+				<a href="/news/post/1"><img src="../static/news/banner1.jpg" alt="icon" class="rounded float-start myimage"></a>
+				<p class="lable"><a href="/news/post/1">«Для Москвы это стало сюрпризом»</a>.Запад намерен ввести санкции против Белоруссии. Как они навредят России?</p>	
+			</div>
+			<div class="blocknews">
+				<a href="/news/post/2"><img src="../static/news/banner2.jpg" alt="icon" class="rounded float-start myimage"></a>
+				<p class="lable"><a href="/news/post/2">«Школа, парта, два ствола»</a>.Как в США борются с массовыми расстрелами и почему запреты на оружие в этом не помогают?</p>	
+			</div>
+			<div class="blocknews">
+				<a href="https://www.youtube.com/watch?v=V7Q7kYyUZrI"><img src="../static/news/banner3.jpg" alt="icon" class="rounded float-start myimage"></a>
+				<p class="lable"><a href="#"><a href="https://www.youtube.com/watch?v=V7Q7kYyUZrI"> «Зеленая перспектива.»</a>Как государства и звезды Голливуда зарабатывают миллиарды долларов на марихуане </p>	
+			</div>
+			<div class="blocknews">
+				<img src="../static/news/banner4.jpg" alt="icon" class="rounded float-start myimage">
+				<p class="lable"><a href="#">«Путин и Байден встретятся 16 июня в Женеве»</a>.Отношения России и США, конфликты и пандемия — что обсудят президенты?</p>	
+			</div>
+			<div class="blocknews">
+				<a href="#"><img src="../static/news/banner5.jpg" alt="icon" class="rounded float-start myimage"></a>
+				<p class="lable"><a href="#">«В стране нет денег».</a>Голод и нищета: чем обернулся для жителей Турции самый жесткий карантин в мире?</p>	
+			</div>
+			<div class="blocknews">
+				<a href="#"><img src="../static/news/banner6.jpg" alt="icon" class="rounded float-start myimage"></a>
+				<p class="lable"><a href="#">«Есть контакт».</a>Главы МИД России и США встретятся с глазу на глаз. Смогут ли они разморозить отношения двух стран?</p>	
+				</div>
+		</div>
+	</div>
+	</section>
+	{% endblock %}
+	{% block message %}
+	{% endblock %}
+</body>
+</html>
